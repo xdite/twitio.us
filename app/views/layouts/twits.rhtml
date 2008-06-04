@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title> twitio.us </title>
+  <%= stylesheet_link_tag 'style' %>
+
+<link title="RSS 2.0" type="application/rss+xml" href="http://feeds.feedburner.com/Twitious" rel="alternate" />
+</head>
+<body>
+<div id ="login">
+<% if logged_in? -%>
+<%= link_to 'View MyTwits', url_for("/users/"+current_user.login+"/") %> |
+<%= link_to 'Logout', {:controller => 'account', :action => 'logout'},:method => :post %>
+<% else %>
+<%= link_to 'Login', {:controller => 'account', :action => 'login'} %>
+<%end %>
+</div>
+<div id ="head">
+<div class="logo"><a href="http://twitio.us/"><%= image_tag("twitio.jpg",:border =>"0") %></a></div>
+<div class="slo"> Twitio.us = twitter + del.icio.us </div>
+<div id="tips">
+ < <%= link_to "How to Use?",:controller =>"twits",:action =>"help" %> >
+</div>
+
+</div>
+<div id="Container">
+
+<div id="Content">
+<%= yield  %>
+</div>
+</div>
+<div id="copyright">
+<p> have any problem please <a href="http://twitter.com/xdite">@xdite</a> </p>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4073039-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

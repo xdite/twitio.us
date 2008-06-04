@@ -1,0 +1,9 @@
+If you use FireFox, DRAG the link to your toolbar. 
+<a href="javascript:(function(){TwitThatPop=window.open(%22http://twitio.us/go?url=%22+encodeURIComponent(location.href)+%22%26title=%22+((document.title)?encodeURIComponent(document.title.replace(/^\s*|\s*$/g,%27%27)):%22%22),%22TwitThatPop%22,%22width=600,height=500,location,status,scrollbars,resizable,dependent=yes%22);setTimeout(%22TwitThatPop.focus()%22,100);})()">twitthat!</a>. If yor you use IE, Right-click the link and choose Add to Favorites.
+
+<h1> Recent twits </h1>
+<% for twit in @twits %>
+  <%= twit.user.login %><%= twit.created_at.strftime('%Y/%m/%d %I:%M%p') %> is <b> <%= Type.find(twit.type_id).type_name %> :   
+  <%= link_to twit.title,twit.url %> </b> <br/>
+<% end %>
+  

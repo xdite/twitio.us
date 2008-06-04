@@ -1,0 +1,3 @@
+  conf.application_name = 'twitious'
+  conf.application_url = 'http://twitio.us'
+  conf.source = "twitious" 

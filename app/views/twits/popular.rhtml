@@ -1,0 +1,6 @@
+<%= render :partial =>"title" %>
+
+<% for twit in @twits %>
+<%= twit.count %> - <a href ="<%= twit.url %>"><%= Twit.find_by_url(twit.url).title %></a>
+<br/>
+<% end %>

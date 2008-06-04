@@ -1,0 +1,15 @@
+<div class="title">
+<% if @controller.action_name =="popular" %>
+<%= link_to("Recent twits",:action => "list") %> / Most popular
+<%else %>
+
+<% if params[:status]==nil or params[:status].to_i >11 or params[:status].to_i <0  %>
+Recent twits / <%= link_to("Most popular",:action => "popular") %>
+<% else %>
+Everbody is <%= Type.find(params[:status]).type_name %> :  
+<% end %>
+
+<%end %>
+
+</div>
+<br/>

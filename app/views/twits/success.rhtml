@@ -1,0 +1,18 @@
+<script language="javascript">
+
+function clock(){i=i-1
+document.title="this window will be closed in "+i+" seconds!";
+if(i>0)setTimeout("clock();",1000);
+else self.close();}
+var i= 5
+clock();
+</script>
+<div align = "center" valign ="center">    
+<h1> TWIT SUCCESS </h1>
+
+<% if logged_in? -%>
+
+<h2> <%= link_to 'View Your Past Twits? ', url_for("/users/"+current_user.login+"/") %> </h2>
+
+<% end %>
+</div>

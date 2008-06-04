@@ -1,0 +1,8 @@
+<% for column in Twit.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @twit.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @twit %> |
+<%= link_to 'Back', :action => 'list' %>

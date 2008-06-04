@@ -1,0 +1,183 @@
+body{
+background:#81C7E3;
+margin:0; 
+padding:0;
+font:10pt arial, times new roman, sans-serif;
+text-align: center;
+}
+
+a:link {
+	color: #666666;
+	}
+	
+a:visited {
+	color: #666666;
+	}
+	
+a:hover, a:active, a:focus {
+	color: #666666; text-decoration:none;
+	}
+
+img {
+border: 0px solid #666666;
+}
+#head{
+background:#3E3E3E;
+
+height: 120px;
+padding: 2em 2em 0.5em 2em;
+text-align: left;
+}
+
+.logo{padding-left: 4em; padding-bottom:10px;}
+.slo{
+margin-top: -0.1em;	
+padding-left: 15em;
+font-size:1.2em;
+color:#81C7E3;
+font-weight:bold;
+}
+
+
+.sc{
+text-align: left;
+	font-size:2em;
+	padding-top:2em;
+
+}
+#rss{
+float: right;
+}
+#rss-image{
+vertical-align: middle;
+}
+#tips{
+float: right;
+color: #ffffff;       
+padding-right: 2em;
+font-weight: bold;
+padding-top: 0.3em;
+}
+#tipscontent{
+padding-top: 1em;
+}
+#tips a:link {
+ color: #ffffff;
+text-decoration:none;
+}   
+
+#tips a:visited{
+	 color: #ffffff;
+
+	text-decoration:none;
+}
+#tips a:hover, a:active, a:focus {
+color:#81C7E3;
+              text-decoration:none;
+	              }
+
+#login{
+background:#000000;
+text-align:right;
+size: 1.2em;
+font-weight: bold;
+height:20px;
+padding-right:20px;
+font-size:1em;
+color: #ED1C24;
+}
+
+#login a:link {
+	color:#ffffff;
+	text-decoration:none;
+	}
+	
+#login a:visited {
+color:#ffffff;
+	text-decoration:none;
+	}
+	
+#login a:hover, a:active, a:focus {
+color:#81C7E3;
+      	text-decoration:none;
+	}
+
+
+#Container {
+	width: 90%;
+	margin:20px auto;
+	background:#FFFFFF;
+	}
+	
+#Content {
+	text-align:left;
+	line-height:160%;
+	padding:15px;
+        padding: 15px 15px 45px 15px;
+	}
+
+	
+.list{
+line-height:160%;
+color:#333333;
+font-size:10pt;
+border-bottom:1px solid #999999;
+padding:10px;
+}
+
+.title{
+color:#333333; 
+padding:5px;
+font-size: 1.5em;
+font-weight:bold;
+}
+
+.date{
+font-size:10pt;
+color:#81C7E3;
+text-align: left;
+font-weight:bold;
+}
+
+.paginationtop{
+float:right;
+color:#333333; 
+margin-top: -1em;
+padding-right: 1.3em;
+font-size:10pt;
+font-size: 1.5em;
+font-weight:bold;
+}
+.paginationbut{
+float:right;
+color:#333333;
+padding-right: 1.3em;
+padding-bottom: 2px;
+font-size:10pt;
+font-size: 1.5em;
+font-weight:bold;
+}
+
+#copyright{
+height:30px;
+border-bottom:1px solid #fff;
+padding:10px;
+color:#ffffff;
+font-size:10pt;
+font-weight:bold;
+}
+
+#copyright a:link {
+	color:#ffffff;
+	text-decoration:none;
+	}
+	
+#copyright a:visited {
+	color:#ffffff;
+	text-decoration:none;
+	}
+	
+#copyright a:hover, a:active, a:focus {
+	color: #ED1C24; 
+  text-decoration:none;
+	}

@@ -1,0 +1,36 @@
+<script>
+function useStatus() {
+    $('#option').html(<%= text_field('dtype','dtype_name',:maxlength =>"20").to_json %>+<%= hidden_field(:twit, :type_id, :value => "-1").to_json %>+<%= hidden_field(:twit, :user_id, :value => current_user.id) %>.to_json);
+    $('#choption').html('<a href="#" onclick ="useTag()"> Use Status? </a>')
+
+}
+function useTag(){
+   $('#option').html(<%= select(:twit ,:type_id, Type.find_all.collect{|a| [a.type_name+":",a.id]}).to_json%>);
+   $('#choption').html('<a href="#" onclick ="useStatus()"> [TAG] or @SOMEONE? </a>')
+}
+</script>
+<div align="right"> <% if logged_in? -%>
+<%= link_to 'View MyTwits', url_for("/users/"+current_user.login+"/") %> |
+<%= link_to 'Logout', {:controller => 'account', :action => 'logout'},:method => :post %>
+<% end %></div>
+<h1> Title</h1>
+<%= @twit.title %>
+<h1> URL</h1>
+<%= @twit.url %>
+<p>
+<% form_tag :action => 'create' do %>
+<div id="option" style="display:inline"> <%= select :twit ,:type_id, Type.find_all.collect{|a| [a.type_name+":",a.id]} %> </div>
+<div id="url" style="display:inline"><%= text_field 'twit', 'title'  %> </div>
+<%= submit_tag "TwitIt!" %>
+<%= hidden_field :twit, :url, :value => @twit.url  %>
+<%= hidden_field :twit, :user_id, :value => current_user.id   %>
+
+<div id="choption"><a href="#" onclick="useStatus()"> [TAG] or @SOMEONE? </a> </div>
+<%= text_area 'twit', 'comment',:rows =>"5" , :cols =>"45" %> 
+<br/>
+( comment is 100 chars only )
+</p>
+
+<% end %>
+
+<%= javascript_include_tag :defaults %>

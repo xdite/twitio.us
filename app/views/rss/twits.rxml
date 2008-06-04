@@ -1,0 +1,33 @@
+xml.instruct! :xml, :version=>"1.0"
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title("Twitio.us")
+  xml.link("http://twitio.us")
+  xml.description("Everybody is twitting!")
+xml.language("UTF-8")
+for twit in @twits
+  xml.item do
+    xml.title(twit.title)
+  if twit.type_id == -1
+     @pstr = "<a href=\"http://twitter.com/"+twit.user.login+"\">"+twit.user.login+"</a>"+" is "+twit.dtype.dtype_name+" : "+"<a href=\""+twit.url+"\">"+twit.title+"</a>"
+     if twit.comment != nil && twit.comment.length > 1
+       @pstr = @pstr+" # "+twit.comment	  
+     end
+     xml.description(@pstr)
+   else 
+     @pstr = "<a href=\"http://twitter.com/"+twit.user.login+"\">"+twit.user.login+"</a>"+" is "+Type.find(twit.type_id).type_name+" : "+"<a href=\""+twit.url+"\">"+twit.title+"</a>"
+      if twit.comment != nil && twit.comment.length > 1
+        @pstr = @pstr+" # "+twit.comment
+      end		
+	xml.description(@pstr)
+ end 
+      #  xml.description('')
+      # rfc822
+      xml.pubDate(twit.created_at.rfc2822)
+    xml.link("")
+    xml.guid("")
+    end
+  end
+  }
+}
+

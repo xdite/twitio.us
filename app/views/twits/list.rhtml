@@ -1,0 +1,32 @@
+<div id ="rss"> <div id="rss-image" style="display:inline;"> <%= image_tag("feed-icon-14x14.png") %></div> <%= link_to "Subscribe Twits", url_for("http://feeds.feedburner.com/Twitious") %> </div>
+
+<div class="paginationtop" align="center">
+<p><span><strong> <%= link_to( h('<') ,  {:status => params[:status],:page => @twit_pages.current.previous}) if @twit_pages.current.previous %><%= pagination_links(@twit_pages,:params => {:status =>params[:status]}) %> <%=link_to( h('>'), {:status => params[:status],:page => @twit_pages.current.next}) if @twit_pages.current.next %></strong> </span></p>
+</div>
+<%= render :partial =>"title" %>
+
+<% for twit in @twits %>
+<div class="list"> <div class="date"> <%= twit.created_at.strftime('%Y/%m/%d %I:%M%p') %></div>
+<% if twit.user.profile_image_url !=nil %>
+<%= link_to(image_tag(twit.user.profile_image_url,:alt => twit.user.login ), url_for("/users/"+twit.user.login+"/")) %>
+<% else %>
+<%= link_to twit.user.login, "http://twitio.us/users/"+twit.user.login+"/" %>
+<% end %>
+is
+<% if twit.type_id == -1 %>
+<%= twit.dtype.dtype_name %> <b>
+<% else %>
+ <%= link_to(Type.find(twit.type_id).type_name,:controller => "twits",:action => "list", :status => twit.type_id )%> : <b>
+<% end %>
+    <%= link_to twit.title,twit.url %>
+    <%if twit.comment != nil && twit.comment.length > 1 %>
+# <%= h twit.comment %>
+    <% end %>
+</b> </div>
+    <% end %>
+
+    <div class="paginationbut" align="center">
+
+    <p><span><strong> <%= link_to( h('<') ,  {:page => @twit_pages.current.previous}) if @twit_pages.current.previous %><%= pagination_links(@twit_pages) %> <%=link_to( h('>'), {:page => @twit_pages.current.next}) if @twit_pages.current.next %></strong> </span></p>
+    </div>
+
